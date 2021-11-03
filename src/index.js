@@ -44,24 +44,3 @@ submit.addEventListener("click", (event) => {
     });
   console.log("I am in a different timeline!");
 });
-
-
-
-// //////////////////////
-// HTTP POST request
-// //////////////////////
-const searchAlgoliaPlaces = (event) => {
-  fetch("https://places-dsn.algolia.net/1/places/query", {
-    method: "POST",
-    body: JSON.stringify({ query: event.currentTarget.value })
-  })
-    .then(response => response.json())
-    .then((data) => {
-      console.log(data.hits); // Look at local_names.default
-    });
-};
-
-// 1. Select search input
-const input = document.querySelector("#search");
-// 2. Listening to a keyup on the search
-input.addEventListener("keyup", searchAlgoliaPlaces);
