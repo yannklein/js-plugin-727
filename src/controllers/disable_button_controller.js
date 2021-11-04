@@ -1,23 +1,21 @@
 import { Controller } from 'stimulus'
 
 export default class extends Controller {
-  static targets = [ 'back', 'button' ]
+  static targets = [ 'reset', 'click' ]
 
   connect() {
-    console.log('Hello from disable_button_controller.js')
+    console.log('Hello from disable_button.js')
   }
   
   disable() {
-    console.log("Disable the button!");
-    this.buttonTarget.disabled = true;
-    this.buttonTarget.innerText = "Bingo";
-    this.backTarget.classList.remove("d-none");
+    this.clickTarget.innerText = "Bingo";
+    this.clickTarget.disabled= true;
+    this.resetTarget.classList.remove("d-none");
   }
 
   reset() {
-    console.log("Disable the button!");
-    this.buttonTarget.disabled = false;
-    this.buttonTarget.innerText = "Click me";
-    this.backTarget.classList.add("d-none");
+    this.resetTarget.classList.add("d-none");
+    this.clickTarget.innerText = "Click me!";
+    this.clickTarget.disabled = false;
   }
 }
